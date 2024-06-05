@@ -13,13 +13,10 @@ class StringFormat:
             "optional": {"format": STRING}
         }
 
-        RETURN_TYPES = ("STRING",)
-        RETURN_NAMES = ("string",)
-
-        FUNCTION = "format"
-
-        # OUTPUT_NODE = False
-        CATEGORY = "xutils"
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("string",)
+    FUNCTION = "format"
+    CATEGORY = "xutils"
 
     def format(self, input, format: str):
-        return format.format(input)
+        return (format.format(input),)
