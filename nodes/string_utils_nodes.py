@@ -1,22 +1,21 @@
-from core.types import *
-from typing import Any
+# from core.types import *
+# from typing import Any
 
 
 class StringFormat:
-    def __init__(self):
-        pass
 
     @classmethod
-    def INPUT_TYPES(s):
-        return {
-            "required": {"any": Any},
-            "optional": {"format": STRING}
+    def INPUT_TYPES(cls):
+        return {"required": {
+            "text1": ("STRING", {"multiline": False, "default": "Hello"}),
+            "text2": ("STRING", {"multiline": False, "default": "World"}),
+        }
         }
 
     RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("string",)
-    FUNCTION = "format"
-    CATEGORY = "xutils"
+    FUNCTION = "concatenate_text"
+    CATEGORY = "🧩 Tutorial Nodes"
 
-    def format(self, input, format: str):
-        return (format.format(input),)
+    def concatenate_text(self, text1, text2):
+        text_out = text1 + " " + text2
+        return (text_out,)
